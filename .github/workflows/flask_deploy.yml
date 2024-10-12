@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.AZURE_PASSWORD }}  # Store your password in secrets
           script: |
             # Change to the application directory or create it if it doesn't exist
-            if [ ! -d "flask_app" ]; then
+            if [ ! -d "test_flask_dev" ]; then
               git clone https://github.com/Asheesh-Shaik/test_flask_dev.git  #modify the github url
             fi
             cd test_flask_dev #change the directory
