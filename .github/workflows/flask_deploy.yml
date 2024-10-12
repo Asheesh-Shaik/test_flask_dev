@@ -31,9 +31,9 @@ jobs:
             
             # Check if the port is already in use using pgrep
             if pgrep -f "flask" > /dev/null; then
-              echo "Port 5000 is already in use. Stopping the conflicting service..."
+              echo "Port 8080 is already in use. Stopping the conflicting service..."
               # Stop the process using the port
-              PID=$(sudo -S lsof -ti:5000 <<< "${{ secrets.AZURE_PASSWORD }}")
+              PID=$(sudo -S lsof -ti:8080 <<< "${{ secrets.AZURE_PASSWORD }}")
               sudo -S kill -9 $PID <<< "${{ secrets.AZURE_PASSWORD }}" || true
             fi
             
@@ -53,4 +53,4 @@ jobs:
             sudo -S docker build -t my-flask-app . <<< "${{ secrets.AZURE_PASSWORD }}"
             
             # Run the new container
-            sudo -S docker run -d --name my-flask-app -p 5000:5000 my-flask-app || { echo "Failed to start container"; exit 1; }
+            sudo -S docker run -d --name my-flask-app -p 8080:8080 my-flask-app || { echo "Failed to start container"; exit 1; }
