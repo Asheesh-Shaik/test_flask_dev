@@ -24,7 +24,7 @@ jobs:
             if [ ! -d "flask_app" ]; then
               git clone https://github.com/Asheesh-Shaik/test_flask_dev.git  #modify the github url
             fi
-            cd flask_app
+            cd test_flask_dev #change the directory
             
             # Pull the latest changes from the repository
             git pull origin main  # Adjust branch name if necessary
